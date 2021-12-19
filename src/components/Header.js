@@ -8,14 +8,19 @@ import {
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { selectTotalItems } from "../slices/basketSlice";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { toggleDarkMode } from "../slices/darkmode-slice";
 
 function Header() {
   const [animationStarted, setAimationStarted] = useState(false);
-
+  const dispatch = useDispatch();
+  const mode = useSelector((state) => state.darkMode.onDarkMode);
   const router = useRouter();
   const items = useSelector(selectTotalItems);
   const { data: session, status } = useSession();
+  const onDarkmodeHandler = () => {
+    dispatch(toggleDarkMode());
+  };
   useEffect(() => {
     if (items === 0) {
       return;
@@ -93,7 +98,7 @@ function Header() {
         </div>
       </div>
       {/* bottom header */}
-      <div className="flex items-center p-2 pl-6 space-x-3 text-white text-sm bg-amazon_blue-light">
+      <div className="flex relative items-center p-2 pl-6 space-x-3 text-white text-sm bg-amazon_blue-light">
         <p className="flex items-center links">
           <MenuIcon className="h-6 mr-1" />
           all
@@ -107,6 +112,11 @@ function Header() {
         <p className="links hidden lg:inline-flex">Buy Again</p>
         <p className="links hidden lg:inline-flex">Shopper Toolkit</p>
         <p className="links hidden lg:inline-flex">Health & Personalcare</p>
+        <div className="absolute  flex items-center gap-2 cursor-pointer  right-4 ">
+          <p className="font-bold" onClick={onDarkmodeHandler}>
+            {mode ? "Light mode" : "Dark mode"}
+          </p>
+        </div>
       </div>
     </header>
   );

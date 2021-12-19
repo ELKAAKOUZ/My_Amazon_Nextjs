@@ -1,10 +1,10 @@
 module.exports = {
   mode: "jit",
+  darkMode: "class",
   purge: [
     "./src/pages/**/*.{js,ts,jsx,tsx}",
     "./src/components/**/*.{js,ts,jsx,tsx}",
   ],
-  darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
       colors: {
@@ -12,6 +12,11 @@ module.exports = {
           light: "#232F3E",
           DEFAULT: "#131921",
         },
+        // darkbg: {
+        //   DEFAULT: "#20222f",
+        //   card: "#252b43",
+        //   dark: "1d2029",
+        // },
       },
       animation: {
         wiggle: "wiggle 0.5s ease-out infinite",
