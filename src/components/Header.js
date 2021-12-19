@@ -104,7 +104,7 @@ function Header() {
           all
         </p>
         <p className="links">Prime Video</p>
-        <p className="links">Amazon Business</p>
+        <p className="links hidden sm:inline-flex">Amazon Business</p>
         <p className="links hidden lg:inline-flex">Todays Deal</p>
         <p className="links hidden lg:inline-flex">Electronics</p>
         <p className="links hidden lg:inline-flex">Food and Grocery</p>
@@ -112,7 +112,7 @@ function Header() {
         <p className="links hidden lg:inline-flex">Buy Again</p>
         <p className="links hidden lg:inline-flex">Shopper Toolkit</p>
         <p className="links hidden lg:inline-flex">Health & Personalcare</p>
-        <div className="absolute  flex items-center gap-2 cursor-pointer  right-4 ">
+        <div className="absolute  flex items-center sm:gap-0   md:gap-2 cursor-pointer  right-2 md:right-4 ">
           <p className="font-bold" onClick={onDarkmodeHandler}>
             {mode ? "Light mode" : "Dark mode"}
           </p>
